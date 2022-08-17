@@ -7,7 +7,7 @@ const DisplayInDevelopmentTasks = ({activeTasks}) => {
     <div>
       <h1>Active Tasks</h1>
       {activeTasks.map(eachActiveTask =>
-          <DisplayEachTask key={eachActiveTask.id} id={eachActiveTask.id} name={eachActiveTask.name} status={eachActiveTask.status} />
+          <DisplayEachTask key={eachActiveTask.id} name={eachActiveTask.name} status={eachActiveTask.status} />
       )}
     </div>
   )

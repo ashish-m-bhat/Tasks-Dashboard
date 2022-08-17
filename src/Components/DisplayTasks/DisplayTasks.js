@@ -16,9 +16,13 @@ const DisplayTasks = () => {
 
   return (
     <div className={cssClasses.DisplayTasks}>
-        {newTasks.length && <DisplayNotStartedTasks newTasks={newTasks} />}
-        {activeTasks.length && <DisplayInDevelopmentTasks activeTasks={activeTasks} />}
-        {completedTasks.length && <DisplayCompletedTasks completedTasks={completedTasks} />}
+        {/* If tasks are yet to load */}
+        {(!newTasks.length || !activeTasks.length || !completedTasks.length) && <h1>Loading...</h1>}
+
+        {/* Display Each kind of task */}
+        {!!newTasks.length && <DisplayNotStartedTasks newTasks={newTasks} />}
+        {!!activeTasks.length && <DisplayInDevelopmentTasks activeTasks={activeTasks} />}
+        {!!completedTasks.length && <DisplayCompletedTasks completedTasks={completedTasks} />}
     </div>
   )
 }
