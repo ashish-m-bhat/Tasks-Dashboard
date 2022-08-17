@@ -1,11 +1,13 @@
+import React from 'react';
 import './App.css';
 import GetAllTasks from './Components/GetAllTasks/GetAllTasks';
+import DisplayTasks from './Components/DisplayTasks/DisplayTasks';
 
 function App() {
   return (
     <div className="App">
       <GetAllTasks />
-      {/* <DisplayTasks /> */}
+      <DisplayTasks />
     </div>
   );
 }

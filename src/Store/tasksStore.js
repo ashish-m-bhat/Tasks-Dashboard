@@ -6,7 +6,10 @@ const tasksSlice = createSlice({
     initialState: {allTasks:[]},
     reducers:{
         setTasks(state, action){
-            state.allTasks = action.payload;
+            action.payload.forEach(e => {
+                state.allTasks.push({id:e.id, name:e.name, status:e.status})
+            });
+
         }
     }
 });
@@ -14,11 +17,11 @@ const tasksSlice = createSlice({
 export default tasksSlice;
 export const taskActions = tasksSlice.actions;
 
+// Middleware
 export function getTasks(){
     return dispatch => {
         fetch('https://react-http-bf239-default-rtdb.firebaseio.com/Tasks.json')
         .then(respose => respose.json())
-        .then(data => {console.log(data); dispatch(taskActions.setTasks(data))})
+        .then(data => {dispatch(taskActions.setTasks(data))})
     }
 }
-
