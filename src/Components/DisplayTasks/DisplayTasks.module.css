@@ -1,0 +1,19 @@
+.DisplayTasks{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+.DisplayTasks > div{
+    text-align: center;
+}
+
+/* .DisplayNotStartedTasks{
+    height: 90vh;
+
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+} */

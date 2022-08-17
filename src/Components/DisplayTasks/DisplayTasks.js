@@ -3,6 +3,7 @@ import DisplayCompletedTasks from './DisplayCompletedTasks/DisplayCompletedTasks
 import DisplayInDevelopmentTasks from './DisplayInDevelopmentTasks/DisplayInDevelopmentTasks'
 import DisplayNotStartedTasks from './DisplayNotStartedTasks/DisplayNotStartedTasks'
 import { useSelector } from 'react-redux'
+import cssClasses from './DisplayTasks.module.css';
 
 // Displays 3 types of tasks : Not Started, In development and Completed
 // Get the alltasks[] array from the redux store and filter them based on the status key
@@ -14,7 +15,7 @@ const DisplayTasks = () => {
     const completedTasks = alltasks.filter(eachtask => eachtask.status === 'completed');
 
   return (
-    <div>
+    <div className={cssClasses.DisplayTasks}>
         {newTasks.length && <DisplayNotStartedTasks newTasks={newTasks} />}
         {activeTasks.length && <DisplayInDevelopmentTasks activeTasks={activeTasks} />}
         {completedTasks.length && <DisplayCompletedTasks completedTasks={completedTasks} />}
