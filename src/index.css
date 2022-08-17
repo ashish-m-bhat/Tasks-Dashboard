@@ -1,0 +1,5 @@
+body{
+    height: 98vh;
+    width: 98vw;
+    background-image: linear-gradient(to bottom right, rgb(57, 0, 83), rgba(255, 5, 255, 0.644));
+}
