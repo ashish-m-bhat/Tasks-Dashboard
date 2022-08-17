@@ -1,0 +1,19 @@
+.Card{
+    background-color: white;
+    color: black;
+    height:20vh;
+    width: 13vw;
+    border-radius: 10px;
+    margin-top:5vh;
+    padding: 1vh;
+    cursor: pointer;
+
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.Card:hover{
+    background-color: lightgreen;
+}
