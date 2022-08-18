@@ -3,7 +3,6 @@ import Button from "../../UI/Button/Button";
 import Card from "../../UI/Card/Card";
 import { useDispatch } from "react-redux";
 import { taskActions } from "../../Store/TasksStore";
-import useHttp from '../../CustomHooks/useHttp';
 
 // Displays a Form to create a new task
 const NewTask = ({ setShowNewTaskForm }) => {
@@ -23,17 +22,6 @@ const NewTask = ({ setShowNewTaskForm }) => {
       status: "new",
     };
 
-    // Object to be posted
-    const objectToPost = {
-      url: "https://react-http-bf239-default-rtdb.firebaseio.com/Tasks.json",
-      method: "POST",
-      body: JSON.stringify(newTask),
-      headers: {
-        "Content-type": "application/json",
-      }
-    };
-
-    // Send the data to the backend
 
     /*
     fetch(objectToPost.url,{
@@ -46,6 +34,7 @@ const NewTask = ({ setShowNewTaskForm }) => {
     .catch(err => alert(err));
 
     */
+
    // Update the redux store which then updates the localStorage as well
     dispatch(taskActions.addNewTask(newTask));
 
