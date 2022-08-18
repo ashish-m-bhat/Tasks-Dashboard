@@ -10,17 +10,13 @@ const NewTask = ({ setShowNewTaskForm }) => {
   const [taskName, setTaskName] = useState("");
   const dispatch = useDispatch();
 
-  // satisfyRequest is the funciton to be called when a fetch is to be made
-  // useHttp takes in a callback that executed when the fetch is sucessfull
-  const satisfyRequest = useHttp((data)=> dispatch(taskActions.addNewTask(data)));
-
   // Handler to submit the form
   const addNewTaskHandler = (event) => {
     event.preventDefault();
     if (taskName === "")
         return;
 
-    // New Tasj=k object with a random id
+    // New Task object with a random id
     const newTask = {
       id: Math.random() * 99999,
       name: taskName,
@@ -38,7 +34,20 @@ const NewTask = ({ setShowNewTaskForm }) => {
     };
 
     // Send the data to the backend
-    satisfyRequest(objectToPost)
+
+    /*
+    fetch(objectToPost.url,{
+      method:objectToPost.method,
+      body:objectToPost.body,
+      headers:objectToPost.headers
+    })
+    .then(response => response.json())
+    .then(() => dispatch(taskActions.addNewTask(newTask)))
+    .catch(err => alert(err));
+
+    */
+   // Update the redux store which then updates the localStorage as well
+    dispatch(taskActions.addNewTask(newTask));
 
     // Reset the form
     setTaskName("");
@@ -55,11 +64,12 @@ const NewTask = ({ setShowNewTaskForm }) => {
               value={taskName}
               name="taskName"
               onChange={(e) => setTaskName(e.target.value)}
+              placeholder='Name'
             />
-            <label htmlFor="taskName">task Name</label>
+            <label htmlFor="taskName"></label>
           </div>
           <div>
-            <Button onClick={addNewTaskHandler}>Create Task</Button>
+            <Button onClick={addNewTaskHandler}>Create</Button>
           </div>
           <div>
             <Button onClick={() => setShowNewTaskForm(false)}>Cancel</Button>

@@ -11,7 +11,7 @@ const DisplayNotStartedTasks = ({ newTasks }) => {
   // state to toggle the form
   const [showNewTaskForm, setShowNewTaskForm] = useState(false);
   return (
-    <div>
+    <div className={cssClasses.DisplayNotStartedTasks}>
       <h1>
         New Tasks
 
@@ -33,6 +33,7 @@ const DisplayNotStartedTasks = ({ newTasks }) => {
       {newTasks.map((eachNewTask) => (
         <DisplayEachTask
           key={eachNewTask.id}
+          id={eachNewTask.id}
           name={eachNewTask.name}
           status={eachNewTask.status}
         />
