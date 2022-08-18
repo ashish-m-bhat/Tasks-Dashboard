@@ -1,7 +1,7 @@
 .Card{
     background-color: white;
     color: black;
-    height:20vh;
+    height:25vh;
     width: 13vw;
     border-radius: 10px;
     margin-top:5vh;
@@ -12,8 +12,10 @@
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
+    box-shadow: rgba(243, 201, 229, 0.3) 0px 19px 38px, rgba(223, 206, 206, 0.22) 0px 15px 12px;
 }
 
 .Card:hover{
     background-color: lightgreen;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }

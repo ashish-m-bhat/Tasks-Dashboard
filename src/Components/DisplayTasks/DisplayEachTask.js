@@ -4,7 +4,7 @@ import {Draggable} from 'react-beautiful-dnd';
 import cssClasses from '../../UI/Card/Card.module.css';
 
 // Displays each Task, whichever type it might be of
-const DisplayEachTask = ({id, index, name, assignedTo, status}) => {
+const DisplayEachTask = ({id, index, name, assignedTo, comment, status}) => {
   const [updateTaskStatus, setUpdateTaskStatus] = useState(false);
   const selectStatusRef = useRef();
 
@@ -19,6 +19,7 @@ const DisplayEachTask = ({id, index, name, assignedTo, status}) => {
         <div {...provided.draggableProps} {...provided.dragHandleProps} ref={provided.innerRef} className={cssClasses.Card}>
           <p>{name}</p>
           <p>Assigned To: {assignedTo}</p>
+          { comment?.length && <p>Comment: {comment}</p>}
           <select onChange={() => setUpdateTaskStatus(true)} ref={selectStatusRef}>
             <option value={status}>{status}</option>
             <option value={restOfTheStatus[0]}>{restOfTheStatus[0]}</option>

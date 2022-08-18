@@ -26,7 +26,25 @@ const ChangeTaskStatus = (props) => {
 
   useEffect(() => {
     // get taskToBeUpdated object
-    const [taskToBeUpdated] = allTasks.filter(eachTask => eachTask.id === props.id);
+    let [taskToBeUpdated] = allTasks.filter(eachTask => eachTask.id === props.id);
+
+    // Check if task is completed. If yes, prompt for a comment, not longer than MAX_COMMENT_LENGTH letters
+    let commentTobeAdded='';
+    const MAX_COMMENT_LENGTH = 30;
+
+    if(props.updatedStatus === 'completed')
+      commentTobeAdded = window.prompt('Enter Comments if any');
+
+      // If any comments, display add them
+    if(commentTobeAdded!==''){
+      if(commentTobeAdded.length > MAX_COMMENT_LENGTH){
+          alert(`Oops, Max Length Allowed is ${MAX_COMMENT_LENGTH} letters`);
+          return;
+      }
+      // Update the Task Object
+      taskToBeUpdated = {...taskToBeUpdated, comment:commentTobeAdded};
+    }
+
 
       // Remove the task
       let updatedTasks = allTasks.filter(eachTask => eachTask.id !== props.id);
