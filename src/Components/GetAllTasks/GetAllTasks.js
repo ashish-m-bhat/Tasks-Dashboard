@@ -5,7 +5,7 @@ import { getTasks } from '../../Store/TasksStore';
 // Calls the middleware getTasks which makes an async fetch request
 // This initializes the redux store
 
-const DUMMY_TASKS = [{id:0, name:'Write', status:'new'}, {id:1, name:'Read', status:'active'}, {id:2, name:'Sleep', status:'completed'}];
+const DUMMY_TASKS = [{id:0, name:'Write', assignedTo: 'Me', status:'new'}, {id:1, name:'Read', assignedTo: 'Me', status:'active'}, {id:2, name:'Sleep', assignedTo: 'Me', status:'completed'}];
 
 const GetAllTasks = () => {
     const dispatch = useDispatch();

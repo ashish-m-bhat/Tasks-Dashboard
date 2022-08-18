@@ -7,18 +7,22 @@ import { taskActions } from "../../Store/TasksStore";
 // Displays a Form to create a new task
 const NewTask = ({ setShowNewTaskForm }) => {
   const [taskName, setTaskName] = useState("");
+  const [assignedTo, setAssignedTo] = useState("Myself");
   const dispatch = useDispatch();
 
   // Handler to submit the form
   const addNewTaskHandler = (event) => {
     event.preventDefault();
-    if (taskName === "")
-        return;
+    if (taskName === "" || assignedTo === ""){
+      alert('Add all the fields!')
+      return;
+    }
 
     // New Task object with a random id
     const newTask = {
       id: Math.random() * 99999,
       name: taskName,
+      assignedTo:assignedTo,
       status: "new",
     };
 
@@ -54,6 +58,16 @@ const NewTask = ({ setShowNewTaskForm }) => {
               name="taskName"
               onChange={(e) => setTaskName(e.target.value)}
               placeholder='Name'
+            />
+            <label htmlFor="taskName"></label>
+          </div>
+          <div>
+            <input
+              type="text"
+              value={assignedTo}
+              name="assignedTo"
+              onChange={(e) => setAssignedTo(e.target.value)}
+              placeholder='Assign To'
             />
             <label htmlFor="taskName"></label>
           </div>

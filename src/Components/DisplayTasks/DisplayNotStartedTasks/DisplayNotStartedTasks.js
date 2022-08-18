@@ -41,6 +41,7 @@ const DisplayNotStartedTasks = ({ newTasks }) => {
               index={index}
               id={eachNewTask.id}
               name={eachNewTask.name}
+              assignedTo={eachNewTask.assignedTo}
               status={eachNewTask.status}
             />
           ))}

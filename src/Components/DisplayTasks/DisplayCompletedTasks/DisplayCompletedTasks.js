@@ -12,7 +12,7 @@ const DisplayCompletedTasks = ({completedTasks}) => {
         <div ref={provided.innerRef} {...provided.droppableProps}>
           <h1>Completed Tasks</h1>
           {completedTasks.map((eachCompletedTask, index) =>
-              <DisplayEachTask key={eachCompletedTask.id} id={eachCompletedTask.id} index={index} name={eachCompletedTask.name} status={eachCompletedTask.status} />
+              <DisplayEachTask key={eachCompletedTask.id} id={eachCompletedTask.id} index={index} name={eachCompletedTask.name} assignedTo={eachCompletedTask.assignedTo} status={eachCompletedTask.status} />
           )}
           {provided.placeholder}
         </div>

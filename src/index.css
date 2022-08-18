@@ -1,6 +1,7 @@
 body{
-    height: 98vh;
+    height: 98vmax;
     width: 98vw;
     background-image: linear-gradient(to bottom right, rgb(57, 0, 83), rgba(255, 5, 255, 0.644));
+    background-size:cover;
     color:white;
 }

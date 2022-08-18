@@ -1,6 +1,6 @@
 // Custom hook that returns a function, which when executed makes a fetch request.
 // Takes a callback that will nbe executed if fetch is successfull
-const useHttp = ({postFetchFunction}) => {
+const useHttp = (postFetchFunction) => {
 
     const satisfyRequest = (configData) =>{
         fetch(configData.url, {
