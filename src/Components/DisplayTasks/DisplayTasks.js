@@ -1,14 +1,21 @@
-import React from 'react'
+import React, { useState } from 'react'
 import DisplayCompletedTasks from './DisplayCompletedTasks/DisplayCompletedTasks'
 import DisplayInDevelopmentTasks from './DisplayInDevelopmentTasks/DisplayInDevelopmentTasks'
 import DisplayNotStartedTasks from './DisplayNotStartedTasks/DisplayNotStartedTasks'
 import { useSelector } from 'react-redux'
+import {DragDropContext} from 'react-beautiful-dnd';
 import cssClasses from './DisplayTasks.module.css';
+import ChangeTaskStatus from '../ChangeTaskStatus/ChangeTaskStatus'
 
 // Displays 3 types of tasks : Not Started, In development and Completed
 // Get the allTasks[] array from the redux store and filter them based on the status key
 const DisplayTasks = () => {
-    let allTasks = useSelector(state => state.tasks.allTasks);
+
+  const [updatedTaskId, setUpdatedTaskId] = useState(-1);
+  const [updatedTaskStatus, setUpdatedTaskStatus] = useState('');
+  const [updateTaskStatus, setUpdateTaskStatus] = useState(false);
+
+  let allTasks = useSelector(state => state.tasks.allTasks);
 
     // When tasks are updated, the allTasks[] gets duplicate values, with the latest values being at the last
     // This is a bug, the localStoage doesn't have those duplicate values and on refresh, the duplicated values aren't present in the state anymore
@@ -30,16 +37,28 @@ const DisplayTasks = () => {
     const activeTasks = allTasks.filter(eachtask => eachtask.status === 'active');
     const completedTasks = allTasks.filter(eachtask => eachtask.status === 'completed');
 
+    // Function to be executed when something has been dropped after bring dragged
+    const onDragEnd = (result) =>{
+      const {destination, draggableId} = result; // {droppableId: 'DisplayInDevelopmentTasks', index: 1}
+      if(!destination)
+        return;
+        setUpdatedTaskId(+draggableId);
+        setUpdatedTaskStatus(destination.droppableId === 'DisplayNotStartedTasks'? 'new' : destination.droppableId === 'DisplayInDevelopmentTasks'? 'active': 'completed');
+        setUpdateTaskStatus(true);
+    }
   return (
-    <div className={cssClasses.DisplayTasks}>
-        {/* If tasks are yet to load */}
-        {/* {(!newTasks.length || !activeTasks.length || !completedTasks.length) && <h1>Loading...</h1>} */}
+    <>
+      <DragDropContext onDragEnd={onDragEnd}>
 
-        {/* Display Each kind of task */}
-         <DisplayNotStartedTasks newTasks={newTasks} />
-        <DisplayInDevelopmentTasks activeTasks={activeTasks} />
-         <DisplayCompletedTasks completedTasks={completedTasks} />
-    </div>
+        <div className={cssClasses.DisplayTasks}>
+            {/* Display Each kind of task */}
+            <DisplayNotStartedTasks newTasks={newTasks} />
+            <DisplayInDevelopmentTasks activeTasks={activeTasks} />
+            <DisplayCompletedTasks completedTasks={completedTasks} />
+        </div>
+      </DragDropContext>
+      {updateTaskStatus && <ChangeTaskStatus id={updatedTaskId} updatedStatus={updatedTaskStatus} setUpdateTaskStatus={setUpdateTaskStatus} />}
+    </>
   )
 }
 

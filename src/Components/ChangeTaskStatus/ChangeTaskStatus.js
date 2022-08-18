@@ -41,7 +41,7 @@ const ChangeTaskStatus = (props) => {
     // Go back to the calling component
     props.setUpdateTaskStatus(false);
 
-  }, [props, dispatcher, allTasks]);
+  }, []);
 
   return ;
 };
