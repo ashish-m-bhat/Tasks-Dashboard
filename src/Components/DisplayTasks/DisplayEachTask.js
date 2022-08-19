@@ -20,8 +20,8 @@ const DisplayEachTask = ({id, index, name, assignedTo, comment, status}) => {
         <div {...provided.draggableProps} {...provided.dragHandleProps} ref={provided.innerRef} className={cssClasses.Card}>
           <p>Task Name: {name}</p>
           <p>Assigned To: {assignedTo}</p>
-          { comment?.length && <p className={DisplayEachTaskCss.tooltip}><img src="https://www.pngall.com/wp-content/uploads/8/Comment-PNG-HD-Image.png" alt="Comment"/> <span className={DisplayEachTaskCss.tooltiptext}>{comment}</span></p>}
-          <select onChange={() => setUpdateTaskStatus(true)} ref={selectStatusRef}>
+          { comment?.length && <p className={DisplayEachTaskCss.tooltip}><img src="https://cdn-icons-png.flaticon.com/512/1380/1380338.png" alt="Comment"/> <span className={DisplayEachTaskCss.tooltiptext}>{comment}</span></p>}
+          <select onChange={() => setUpdateTaskStatus(true)} ref={selectStatusRef} className={DisplayEachTaskCss.selectTaskStatus}>
             <option value={status}>{status}</option>
             <option value={restOfTheStatus[0]}>{restOfTheStatus[0]}</option>
             <option value={restOfTheStatus[1]}>{restOfTheStatus[1]}</option>

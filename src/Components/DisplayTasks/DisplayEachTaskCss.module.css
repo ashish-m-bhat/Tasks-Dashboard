@@ -19,3 +19,13 @@ div > p > img{
   .tooltip:hover .tooltiptext {
     visibility: visible;
   }
+
+.selectTaskStatus{
+  width: 6vw;
+  height: 3vh;
+  background-color: #551185;
+  color:white;
+  margin-bottom: 2vh;
+  cursor: pointer;
+  border: 1px solid white;
+}
