@@ -1,6 +1,7 @@
 import React from 'react'
 import DisplayEachTask from '../DisplayEachTask'
 import {Droppable} from 'react-beautiful-dnd';
+import SearchTasks from '../../SearchTasks/SearchTasks';
 
 // Display all the Active tasks
 const DisplayInDevelopmentTasks = ({activeTasks}) => {
@@ -10,6 +11,7 @@ const DisplayInDevelopmentTasks = ({activeTasks}) => {
     {
       (provided) =>(
         <div ref={provided.innerRef} {...provided.droppableProps}>
+          <SearchTasks status='active'/>
           <h1>Active Tasks</h1>
           {activeTasks.map((eachActiveTask, index) =>
               <DisplayEachTask key={eachActiveTask.id} id={eachActiveTask.id} index={index} name={eachActiveTask.name} assignedTo={eachActiveTask.assignedTo} status={eachActiveTask.status} />

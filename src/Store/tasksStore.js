@@ -27,7 +27,18 @@ const tasksSlice = createSlice({
         },
 
         filterTasks(state, action){
-            state.filteredTasks = state.allTasks.filter(eachTask => eachTask.name.toLowerCase().includes(action.payload));
+            // If no input/ seach input was cancllled, set it back
+            if(action.payload.searchWord === ''){
+                state.filteredTasks = [...state.allTasks];
+                return;
+            }
+
+            // Filter the Tasks based on the search keyword and the status ( since there are 3 status and 3 search bars)
+            state.filteredTasks = state.allTasks.filter(eachTask => {
+                if(eachTask.name.toLowerCase().includes(action.payload.searchWord) && eachTask.status === action.payload.status)
+                    return true;
+                return false;
+            });
         }
     }
 });

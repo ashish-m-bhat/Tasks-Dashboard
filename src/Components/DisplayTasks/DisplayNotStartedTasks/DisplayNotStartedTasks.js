@@ -4,6 +4,7 @@ import NewTask from "../../NewTask/NewTask";
 import DisplayEachTask from "../DisplayEachTask";
 import cssClasses from "./DisplayNotStartedTasks.module.css";
 import {Droppable} from 'react-beautiful-dnd';
+import SearchTasks from "../../SearchTasks/SearchTasks";
 
 // Display all the New tasks
 // Also lets users add a new task by calling in NewTask component
@@ -17,6 +18,7 @@ const DisplayNotStartedTasks = ({ newTasks }) => {
     {
       (provided) => (
         <div className={cssClasses.DisplayNotStartedTasks} ref={provided.innerRef} {...provided.droppableProps}>
+          <SearchTasks status='new'/>
           <h1>
             New Tasks
 

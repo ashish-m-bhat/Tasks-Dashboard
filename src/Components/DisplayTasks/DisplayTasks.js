@@ -51,7 +51,6 @@ const DisplayTasks = () => {
     }
   return (
     <>
-      <SearchTasks />
       <DragDropContext onDragEnd={onDragEnd}>
 
         <div className={cssClasses.DisplayTasks}>
