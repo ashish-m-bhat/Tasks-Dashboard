@@ -38,9 +38,9 @@ const ChangeTaskStatus = (props) => {
 
       // If any comments, display add them
     if(commentTobeAdded!==''){
-      if(commentTobeAdded.length > MAX_COMMENT_LENGTH){
+      while(commentTobeAdded.length > MAX_COMMENT_LENGTH){
           alert(`Oops, Max Length Allowed is ${MAX_COMMENT_LENGTH} letters`);
-          return;
+          commentTobeAdded = window.prompt('Enter Comments if any') || '';
       }
       // Update the Task Object
       taskToBeUpdated = {...taskToBeUpdated, comment:commentTobeAdded};
