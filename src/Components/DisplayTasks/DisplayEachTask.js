@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react'
 import ChangeTaskStatus from '../ChangeTaskStatus/ChangeTaskStatus';
 import {Draggable} from 'react-beautiful-dnd';
 import cssClasses from '../../UI/Card/Card.module.css';
+import DisplayEachTaskCss from './DisplayEachTaskCss.module.css';
 
 // Displays each Task, whichever type it might be of
 const DisplayEachTask = ({id, index, name, assignedTo, comment, status}) => {
@@ -17,9 +18,9 @@ const DisplayEachTask = ({id, index, name, assignedTo, comment, status}) => {
     {
       (provided)=>(
         <div {...provided.draggableProps} {...provided.dragHandleProps} ref={provided.innerRef} className={cssClasses.Card}>
-          <p>{name}</p>
+          <p>Task Name: {name}</p>
           <p>Assigned To: {assignedTo}</p>
-          { comment?.length && <p>Comment: {comment}</p>}
+          { comment?.length && <p className={DisplayEachTaskCss.tooltip}><img src="https://www.pngall.com/wp-content/uploads/8/Comment-PNG-HD-Image.png" alt="Comment"/> <span className={DisplayEachTaskCss.tooltiptext}>{comment}</span></p>}
           <select onChange={() => setUpdateTaskStatus(true)} ref={selectStatusRef}>
             <option value={status}>{status}</option>
             <option value={restOfTheStatus[0]}>{restOfTheStatus[0]}</option>

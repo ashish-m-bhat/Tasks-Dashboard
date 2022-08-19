@@ -1,0 +1,21 @@
+div > p > img{
+    height: 6vh;
+    width: 3vw;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: auto;
+    background-color: rgba(22, 0, 22, 0.644);
+    color: white;
+    text-align: center;
+    border-radius: 10px;
+    margin:1vh 1vw;
+    padding: 1vh 1vw;
+
+    position: absolute;
+  }
+
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+  }
