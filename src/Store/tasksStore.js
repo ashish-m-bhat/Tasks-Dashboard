@@ -3,15 +3,16 @@ import { createSlice } from "@reduxjs/toolkit";
 // Redux Store slice to manage the Tasks
 const tasksSlice = createSlice({
     name:'tasks',
-    initialState: {allTasks:[]},
+    initialState: {allTasks:[], filteredTasks:[]},
     reducers:{
 
         // Reducer to fetch all the tasks
         setTasks(state, action){
             const alltasks = JSON.parse(action.payload);
             for(let key in alltasks){
-                state.allTasks.push(alltasks[key])
+                state.allTasks.push(alltasks[key]);
             }
+            state.filteredTasks=[...state.allTasks];
         },
 
         // Reducer to add a new task
@@ -22,6 +23,11 @@ const tasksSlice = createSlice({
             localStorage.setItem('allTasks', JSON.stringify(allTasks));
 
             state.allTasks.push(action.payload);
+            state.filteredTasks=[...state.allTasks];
+        },
+
+        filterTasks(state, action){
+            state.filteredTasks = state.allTasks.filter(eachTask => eachTask.name.toLowerCase().includes(action.payload));
         }
     }
 });

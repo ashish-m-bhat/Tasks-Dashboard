@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import DisplayCompletedTasks from './DisplayCompletedTasks/DisplayCompletedTasks'
 import DisplayInDevelopmentTasks from './DisplayInDevelopmentTasks/DisplayInDevelopmentTasks'
 import DisplayNotStartedTasks from './DisplayNotStartedTasks/DisplayNotStartedTasks'
@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux'
 import {DragDropContext} from 'react-beautiful-dnd';
 import cssClasses from './DisplayTasks.module.css';
 import ChangeTaskStatus from '../ChangeTaskStatus/ChangeTaskStatus'
+import SearchTasks from '../SearchTasks/SearchTasks'
 
 // Displays 3 types of tasks : Not Started, In development and Completed
 // Get the allTasks[] array from the redux store and filter them based on the status key
@@ -16,6 +17,8 @@ const DisplayTasks = () => {
   const [updateTaskStatus, setUpdateTaskStatus] = useState(false);
 
   let allTasks = useSelector(state => state.tasks.allTasks);
+  let filteredTasks = useSelector(state => state.tasks.filteredTasks);
+  allTasks = [...filteredTasks];
 
     // When tasks are updated, the allTasks[] gets duplicate values, with the latest values being at the last
     // This is a bug, the localStoage doesn't have those duplicate values and on refresh, the duplicated values aren't present in the state anymore
@@ -30,9 +33,9 @@ const DisplayTasks = () => {
     allTasks=[];
 
     for(let value of tasksMap.values())
-      allTasks.push(value);
+    allTasks.push(value);
+    // Now allTasks[] has unique values
 
-    // Now allTasks[] jhas unique values
     const newTasks = allTasks.filter(e => e.status === 'new');
     const activeTasks = allTasks.filter(eachtask => eachtask.status === 'active');
     const completedTasks = allTasks.filter(eachtask => eachtask.status === 'completed');
@@ -48,6 +51,7 @@ const DisplayTasks = () => {
     }
   return (
     <>
+      <SearchTasks />
       <DragDropContext onDragEnd={onDragEnd}>
 
         <div className={cssClasses.DisplayTasks}>
@@ -57,7 +61,7 @@ const DisplayTasks = () => {
             <DisplayCompletedTasks completedTasks={completedTasks} />
         </div>
       </DragDropContext>
-      {updateTaskStatus && <ChangeTaskStatus id={updatedTaskId} updatedStatus={updatedTaskStatus} setUpdateTaskStatus={setUpdateTaskStatus} />}
+      {updateTaskStatus && <ChangeTaskStatus id={updatedTaskId} updatedStatus={updatedTaskStatus} setUpdateTaskStatus={setUpdateTaskStatus}/>}
     </>
   )
 }

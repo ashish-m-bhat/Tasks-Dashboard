@@ -7,7 +7,8 @@ import { getTasks } from "../../Store/TasksStore";
 
 const ChangeTaskStatus = (props) => {
   const dispatcher = useDispatch();
-  // Get all the tasks
+
+  // Get all the tasks (filtered)
   let allTasks = useSelector(state => state.tasks.allTasks);
 
   // When tasks are updated, the allTasks[] gets duplicate values, with the latest values being at the last
@@ -33,7 +34,7 @@ const ChangeTaskStatus = (props) => {
     const MAX_COMMENT_LENGTH = 30;
 
     if(props.updatedStatus === 'completed')
-      commentTobeAdded = window.prompt('Enter Comments if any');
+      commentTobeAdded = window.prompt('Enter Comments if any') || '';
 
       // If any comments, display add them
     if(commentTobeAdded!==''){

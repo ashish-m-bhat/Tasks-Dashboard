@@ -15,7 +15,8 @@
     box-shadow: rgba(243, 201, 229, 0.3) 0px 19px 38px, rgba(223, 206, 206, 0.22) 0px 15px 12px;
 }
 
-.Card:hover{
-    background-color: lightgreen;
+.Card:hover, .Card:active{
+    background-color: rgb(113, 15, 161);
     box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    color: white;
 }
