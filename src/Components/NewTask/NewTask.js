@@ -3,6 +3,7 @@ import Button from "../../UI/Button/Button";
 import Card from "../../UI/Card/Card";
 import { useDispatch } from "react-redux";
 import { taskActions } from "../../Store/TasksStore";
+import ModalModule from './NewTask.module.css';
 
 // Displays a Form to create a new task
 const NewTask = ({ setShowNewTaskForm }) => {
@@ -47,17 +48,22 @@ const NewTask = ({ setShowNewTaskForm }) => {
     setShowNewTaskForm(false);
   };
   return (
-    <Card>
+    <>
+    <div className={ModalModule.backdrop} onClick={() => setShowNewTaskForm(false)}>
+    </div>
+    <Card className={ModalModule.modal}>
       <form>
+        <header>
+          <h2>New Task</h2>
+        </header>
         <fieldset>
-          <legend>New Task</legend>
           <div>
             <input
               type="text"
               value={taskName}
               name="taskName"
               onChange={(e) => setTaskName(e.target.value)}
-              placeholder='Name'
+              placeholder='Task Name'
             />
             <label htmlFor="taskName"></label>
           </div>
@@ -80,6 +86,7 @@ const NewTask = ({ setShowNewTaskForm }) => {
         </fieldset>
       </form>
     </Card>
+    </>
   );
 };
 
