@@ -6,7 +6,6 @@ import { useSelector } from 'react-redux'
 import {DragDropContext} from 'react-beautiful-dnd';
 import cssClasses from './DisplayTasks.module.css';
 import ChangeTaskStatus from '../ChangeTaskStatus/ChangeTaskStatus'
-import SearchTasks from '../SearchTasks/SearchTasks'
 
 // Displays 3 types of tasks : Not Started, In development and Completed
 // Get the allTasks[] array from the redux store and filter them based on the status key
