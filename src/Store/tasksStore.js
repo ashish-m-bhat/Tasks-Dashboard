@@ -32,16 +32,14 @@ const tasksSlice = createSlice({
                 state.filteredTasks = [...state.allTasks];
                 return;
             }
-
             // Filter the Tasks based on the search keyword and the status ( since there are 3 status and 3 search bars)
             state.filteredTasks = state.allTasks.filter(eachTask => {
                 // For other status tasks, display them
                 if(eachTask.status !== action.payload.status)
-                    return true;
-
+                    return false;
                 // For the current status tasks, match the searched word as well
                 else{
-                    if(eachTask.name.toLowerCase().includes(action.payload.searchWord)){
+                    if(eachTask.name.toLowerCase().includes(action.payload.searchWord.toLowerCase())){
                         return true;
                     }
                     else{
