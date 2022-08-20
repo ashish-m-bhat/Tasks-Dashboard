@@ -26,3 +26,18 @@ Extra dependecies needed (will get installed as a part of npm i):
 3. react-redux: ^8.0.2
 4. react-scripts: 5.0.1
 5. redux : ^4.2.0
+
+                                           Screenshots
+                                           
+                                           Home screen
+![Screenshot (92)](https://user-images.githubusercontent.com/61205415/185744393-6fc1ea98-a0cc-4672-bd5a-e6a1b5aa2448.png)
+                                           New Task Form
+![Screenshot (91)](https://user-images.githubusercontent.com/61205415/185744349-fe3eadda-9f24-4e74-8bf7-10d6b67041bb.png)
+                                           Adding comments on closure
+![Screenshot (89)](https://user-images.githubusercontent.com/61205415/185744344-12ea0f79-e401-4a5a-9d79-2de7f356e805.png)
+
+                                           Comments visible with a tooltip
+![Screenshot (90)](https://user-images.githubusercontent.com/61205415/185744351-f16db248-3c5e-4a69-ba15-bf1c73a284dd.png)
+
+                                           When user tries to move a task from Active to Completed
+![Screenshot (93)](https://user-images.githubusercontent.com/61205415/185744484-0583f52d-6192-4eb0-9301-da8b1a5f3b51.png)
