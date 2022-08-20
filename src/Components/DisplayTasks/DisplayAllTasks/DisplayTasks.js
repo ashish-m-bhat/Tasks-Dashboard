@@ -41,12 +41,21 @@ const DisplayTasks = () => {
 
     // Function to be executed when something has been dropped after bring dragged
     const onDragEnd = (result) =>{
-      const {destination, draggableId} = result; // {droppableId: 'DisplayInDevelopmentTasks', index: 1}
+      const statusLevelMap = new Map([['DisplayNotStartedTasks', 1], ['DisplayInDevelopmentTasks',2], ['DisplayCompletedTasks', 3]]);
+      const {source, destination, draggableId} = result; // {droppableId: 'DisplayInDevelopmentTasks', index: 1}
+
       if(!destination)
         return;
-        setUpdatedTaskId(+draggableId);
-        setUpdatedTaskStatus(destination.droppableId === 'DisplayNotStartedTasks'? 'new' : destination.droppableId === 'DisplayInDevelopmentTasks'? 'active': 'completed');
-        setUpdateTaskStatus(true);
+
+        // Check if task has been moves across 2 levels
+      if(Math.abs(statusLevelMap.get(source.droppableId)-statusLevelMap.get(destination.droppableId)) !== 1){
+        alert('Cannot move the task across 2 levels!');
+        return;
+      }
+
+      setUpdatedTaskId(+draggableId);
+      setUpdatedTaskStatus(destination.droppableId === 'DisplayNotStartedTasks'? 'new' : destination.droppableId === 'DisplayInDevelopmentTasks'? 'active': 'completed');
+      setUpdateTaskStatus(true);
     }
   return (
     <>
