@@ -1,7 +1,7 @@
 import React from 'react'
-import DisplayEachTask from '../DisplayEachTask'
 import {Droppable} from 'react-beautiful-dnd';
 import SearchTasks from '../../SearchTasks/SearchTasks';
+import DisplayEachTask from '../DisplayEachTask/DisplayEachTask';
 
 // Display all the completed tasks
 const DisplayCompletedTasks = ({completedTasks}) => {

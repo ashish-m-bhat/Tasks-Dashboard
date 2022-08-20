@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react'
-import DisplayCompletedTasks from './DisplayCompletedTasks/DisplayCompletedTasks'
-import DisplayInDevelopmentTasks from './DisplayInDevelopmentTasks/DisplayInDevelopmentTasks'
-import DisplayNotStartedTasks from './DisplayNotStartedTasks/DisplayNotStartedTasks'
+import React, { useState } from 'react'
+import DisplayCompletedTasks from '../DisplayCompletedTasks/DisplayCompletedTasks'
+import DisplayInDevelopmentTasks from '../DisplayInDevelopmentTasks/DisplayInDevelopmentTasks'
+import DisplayNotStartedTasks from '../DisplayNotStartedTasks/DisplayNotStartedTasks'
 import { useSelector } from 'react-redux'
 import {DragDropContext} from 'react-beautiful-dnd';
 import cssClasses from './DisplayTasks.module.css';
-import ChangeTaskStatus from '../ChangeTaskStatus/ChangeTaskStatus'
+import ChangeTaskStatus from '../../ChangeTaskStatus/ChangeTaskStatus'
 
 // Displays 3 types of tasks : Not Started, In development and Completed
 // Get the allTasks[] array from the redux store and filter them based on the status key

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Button from "../../../UI/Button/Button";
 import NewTask from "../../NewTask/NewTask";
-import DisplayEachTask from "../DisplayEachTask";
+import DisplayEachTask from "../DisplayEachTask/DisplayEachTask";
 import cssClasses from "./DisplayNotStartedTasks.module.css";
 import {Droppable} from 'react-beautiful-dnd';
 import SearchTasks from "../../SearchTasks/SearchTasks";

@@ -1,9 +1,9 @@
-import React from 'react'
-import DisplayEachTask from '../DisplayEachTask'
+import React from 'react';
 import {Droppable} from 'react-beautiful-dnd';
 import SearchTasks from '../../SearchTasks/SearchTasks';
+import DisplayEachTask from '../DisplayEachTask/DisplayEachTask';
 
-// Display all the Active tasks
+// Display all the Active tasks. The parent component passes this based on the filter (searched letters)
 const DisplayInDevelopmentTasks = ({activeTasks}) => {
   return (
     /* This section is droppable, means something could be dropped into it*/
@@ -25,4 +25,4 @@ const DisplayInDevelopmentTasks = ({activeTasks}) => {
   )
 }
 
-export default DisplayInDevelopmentTasks
+export default DisplayInDevelopmentTasks;

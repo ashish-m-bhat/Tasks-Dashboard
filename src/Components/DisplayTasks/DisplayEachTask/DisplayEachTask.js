@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react'
-import ChangeTaskStatus from '../ChangeTaskStatus/ChangeTaskStatus';
+import ChangeTaskStatus from '../../ChangeTaskStatus/ChangeTaskStatus';
 import {Draggable} from 'react-beautiful-dnd';
-import cssClasses from '../../UI/Card/Card.module.css';
+import cssClasses from '../../../UI/Card/Card.module.css';
 import DisplayEachTaskCss from './DisplayEachTaskCss.module.css';
 
 // Displays each Task, whichever type it might be of
