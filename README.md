@@ -2,7 +2,7 @@
 2. The tasks are grouped as New Tasks, Active Tasks/In Development Tasks and Completed Tasks.
 3. One can move the Tasks to other states.
 4. Task status can be changed by either drag and drop or by selecting the drop down.
-5. Tasks cannot be moved across two levels. Ex: One cannot direclt move a task from Active active to Completed.
+5. Tasks cannot be moved across two levels. Ex: One cannot directly move a task from Active to Completed.
 6. The App lets one add a new Task. The default assignee is "Myself".
 7. The App lets one search the tasks in a particular group: New/Active/Completed Tasks
 8. When one tries to close the Task, the user is prompted to add a comment which should not more the be of 30 letters.
