@@ -48,7 +48,7 @@ const DisplayTasks = () => {
         return;
 
         // Check if task has been moves across 2 levels
-      if(Math.abs(statusLevelMap.get(source.droppableId)-statusLevelMap.get(destination.droppableId)) !== 1){
+      if(Math.abs(statusLevelMap.get(source.droppableId)-statusLevelMap.get(destination.droppableId)) > 1){
         alert('Cannot move the task across 2 levels!');
         return;
       }
