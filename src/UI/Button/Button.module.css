@@ -1,17 +1,17 @@
 .Button{
-    background-color: gray;
+    background-color: rgb(0, 160, 67);
     color: black;
     cursor: pointer;
+    border: none;
     border-radius: 10px;
-    height: 2vh;
-    width: 3vw;
-    text-align: center;
     font-size: large;
-    margin-left: 3vh;
-    padding: 0.5em;
-    text-align: center;
-    margin-top: 1vh;
     display: inline-block;
+    text-align: center;
+
+    margin: 1vh 1vw;
+    width:4vw;
+    height: 3vh;
+
 }
 
 .Button:hover{

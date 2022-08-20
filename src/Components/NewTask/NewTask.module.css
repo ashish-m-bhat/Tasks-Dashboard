@@ -5,7 +5,7 @@
     width: 98vw;
     height: 98vh;
     z-index: 10;
-    background: rgba(0, 0, 0, 0.75);
+    background: rgba(0, 0, 0, 0.8);
   }
 
   .modal {
@@ -17,8 +17,8 @@
     padding: 2vw;
     z-index: 100;
     overflow: hidden;
-    background-color: white;
-    color:blueviolet;
+    background-color: rgb(113, 15, 161);
+    color:white;
     border-radius: 10px;
     border: 4px solid blueviolet;
   }
@@ -26,4 +26,8 @@ input{
     border: 1px solid blueviolet;
     height: 1.5vw;
     margin: 1vh;
+}
+
+.modal, form{
+  cursor: default;
 }

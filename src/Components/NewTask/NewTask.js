@@ -52,22 +52,24 @@ const NewTask = ({ setShowNewTaskForm }) => {
     <div className={ModalModule.backdrop} onClick={() => setShowNewTaskForm(false)}>
     </div>
     <Card className={ModalModule.modal}>
-      <form>
+      <form onSubmit={addNewTaskHandler}>
         <header>
           <h2>New Task</h2>
         </header>
         <fieldset>
           <div>
+          <label htmlFor="taskName">Task Name</label>
             <input
               type="text"
               value={taskName}
               name="taskName"
               onChange={(e) => setTaskName(e.target.value)}
-              placeholder='Task Name'
+              placeholder='Enter the Task Name'
             />
             <label htmlFor="taskName"></label>
           </div>
           <div>
+            <label htmlFor="assignedTo">Assign To   </label>
             <input
               type="text"
               value={assignedTo}
@@ -78,7 +80,7 @@ const NewTask = ({ setShowNewTaskForm }) => {
             <label htmlFor="taskName"></label>
           </div>
           <div>
-            <Button onClick={addNewTaskHandler}>Create</Button>
+            <Button type="submit" onClick={addNewTaskHandler}>Create</Button>
           </div>
           <div>
             <Button onClick={() => setShowNewTaskForm(false)}>Cancel</Button>
