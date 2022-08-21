@@ -6,7 +6,7 @@ import useDebounce from '../../CustomHooks/useDebounce';
 // Search the tasks
 // On every keystroke, it dispatches the filterTasks action to the redux store
 
-const SearchTasks = ({status}) => {
+const SearchTasks = ({status, setIsLoading}) => {
   const searchTasksRef = useRef();
   const dispatcher = useDispatch();
 
@@ -16,6 +16,8 @@ const SearchTasks = ({status}) => {
   // When something is searched, update the filterTasks[] in the redux store
   const searchTasksHandler = event =>{
     event.preventDefault();
+    // Set the Loading state to true
+    setIsLoading(true);
     dispatcher(taskActions.filterTasks({status:status, searchWord:event.target.value}));
   }
 
